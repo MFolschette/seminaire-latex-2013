@@ -1,0 +1,290 @@
+\documentclass{beamer}
+
+\input{in_part_a} %usepackage ect...
+\usepackage{pdfpages}
+
+\title [Séminaire \LaTeX, séance 3]{Séminaire \LaTeX, séance 3: utilisation avancée}
+\date{jeudi 28 février 2013}
+\input{in_part_b} %author ect...
+
+%%Macros exemple
+\newcommand{\ltsname}{Labeled Transition System}
+\newcommand{\abs}[1]{\ensuremath\left|#1\right|}
+\newcommand{\lts}[1][]{\ensuremath\left(Q^{#1}, q_0^{#1}, A_{#1}, \rightarrow_{#1}\right)}
+\renewcommand{\vec}[1]{\overrightarrow{#1}}
+
+\begin{document}
+
+%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Points abordés durant la séance 3:}
+    \begin{itemize}
+            \item bibliographie, 
+            \item commandes avancées, 
+            \item inclusion de figures à l'aide de différents outils, 
+            \item création d'un diaporama à l'aide de la classe Beamer. 
+        \end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% PART%% %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\part{Bibliographie}
+
+%%%%%%%%%%
+
+\section{BibTeX}
+
+%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Présentation de BibTeX}
+BibTeX est un outil de gestion de bibliographie
+	
+
+La \emph{base de données} bibliographique est placée dans un fichier extérieur (.bib)
+On le place dans le document par les commandes:
+\begin{lstlisting}
+\bibliographystyle{plain}
+\bibliography{nom-biblio}
+\end{lstlisting}
+On y fait référence par la commande \lstinline?\cite{...}?  \cite{latexcompanion}
+
+Il est possible d'inclure plusieurs fichiers .bib:
+\lstinline?\bibliography{biblio1,biblio2}?
+\end{frame}
+
+%%%%%%%%%%
+
+\section{Exemple}
+
+%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%%
+
+\begin{frame}[fragile]
+\frametitle{Exercice}
+
+Créer un nouveau fichier .tex nommé biblio.tex. 
+
+\begin{lstlisting}
+@article{greenwade93,
+    author  = "Inconnu",
+    title   = "Titre",
+    year    = "1993",
+    journal = "Nom du journal",
+    volume  = "14",
+    number  = "3",
+    pages   = "342--351"
+}
+\end{lstlisting}
+
+Et y faire référence dans votre document principal:
+
+\begin{lstlisting}
+....
+\cite{greenwade93}
+....
+\bibliographystyle{plain} %ou style alpha
+\bibliography{biblio}
+\end{lstlisting}
+
+\end{frame}
+
+
+%%%%%%%%%%
+
+\section{JabRef}
+
+%%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{Outils de gestion de bibliographie}
+
+La plupart des bases de données bibliographiques permettent d'exporter une entrée en BibTeX (Google Scholar inclu: Préférences Scholar,  Gestionnaire des bibliographies,  Afficher les liens permettant d'importer des citations dans BibTeX).
+
+Utiliser un outil de gestion de bibliographie est nécessaire:
+\begin{itemize}
+\item JabRef,
+\item Mendeley,
+\item Zotero
+\end{itemize}
+\end{frame}
+
+%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Jabref (mutli-plateforme)}
+
+\vspace*{-0.5cm}
+\begin{figure} %debut de l'environnement figure
+\centering %figure centree
+\includegraphics[width=9cm]{img/jabref} % image de X cm de large
+%\caption{Titre de la figure} %titre de la figure
+%\label{titre_fig} %label de la figure (ex voir figure W)
+\end{figure} %fin de l'environnement figure
+
+\vspace*{-0.5cm}
+{\footnotesize Téléchargement: http://jabref.sourceforge.net/ }
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% PART%% %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\part{Commandes avancées}
+
+\section{Commandes personnalisées}
+
+\begin{frame}[fragile]
+	\frametitle{Créer ses propres commandes}
+	Pourquoi?
+	\begin{itemize}
+		\item Réutilisation
+		\item Simplification
+	\end{itemize}
+	
+	Définition
+
+	\begin{lstlisting}
+\newcommand{\ltsname}{Labeled Transition System}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\lts}[1][]{\left(Q^{#1},q_0^{#1},A_{#1},\rightarrow_{#1}\right)}
+	\end{lstlisting}
+	Utilisation
+		\begin{itemize}
+	\item \lstinline?\ltsname? $\Rightarrow$ \ltsname
+	\item \lstinline?\abs{\pi}? $\Rightarrow$ $\abs{\pi}$
+	\item \lstinline?\lts? $\Rightarrow$ $\lts$\\
+		\lstinline?\lts[n]? $\Rightarrow$ $\lts[n]$
+	\end{itemize}
+	Restrictions
+	\begin{itemize}
+		\item Pas de chiffres
+		\item Pas de @
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Redéfinir des commandes}
+
+	\begin{lstlisting}
+\renewcommand{\vec}[1]{\overrightarrow{#1}}
+	\end{lstlisting}
+	Utilisation
+		\begin{itemize}
+	\item \lstinline?\vec{AB}? $\Rightarrow$ $\vec{AB}$
+	\end{itemize}
+
+\end{frame}
+
+\section{Comprendre la compilation}
+
+\begin{frame}
+	\frametitle{Fichiers auxiliaires}
+	\begin{description}
+	\item[log] fichier où \LaTeX{} écrit tout un tas d'informations sur la dernière compilation
+	\item[aux] fichier auxiliaire: stocke les références, citations, numéros de page, etc.
+	\item[toc] fichier contenant la table des matières
+	\item[lof] fichier contenant la liste des figures
+	\item[lot] fichier contenant la liste des tables
+	\item[bbl] fichier contenant la bibliographie
+	\end{description}
+\end{frame}
+
+\begin{frame}
+\frametitle{Cycle de compilation}
+TODO
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% SECTION %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Autres éditeurs \LaTeX}
+
+
+%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Texniccenter}
+
+\begin{figure} %debut de l'environnement figure
+\centering %figure centree
+\includegraphics[width=9cm]{img/Texniccenter} % image de X cm de large
+%\caption{Titre de la figure} %titre de la figure
+%\label{titre_fig} %label de la figure (ex voir figure W)
+\end{figure} %fin de l'environnement figure
+
+{\footnotesize Téléchargement: http://www.texniccenter.org/ }
+
+\end{frame}
+
+
+%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%%
+
+\begin{frame}{LyX}
+
+\begin{figure} %debut de l'environnement figure
+\centering %figure centree
+\includegraphics[width=8cm]{img/LyXScreen_Linux_en} % image de X cm de large
+%\caption{Titre de la figure} %titre de la figure
+%\label{titre_fig} %label de la figure (ex voir figure W)
+\end{figure} %fin de l'environnement figure
+
+{\footnotesize Téléchargement: http:// 	www.lyx.org/ }
+
+\end{frame}
+
+
+%%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%%
+
+\begin{frame}{Texmaker}
+
+\begin{figure} %debut de l'environnement figure
+\centering %figure centree
+\includegraphics[width=9cm]{img/TexmakerView} % image de X cm de large
+%\caption{Titre de la figure} %titre de la figure
+%\label{titre_fig} %label de la figure (ex voir figure W)
+\end{figure} %fin de l'environnement figure
+
+{\footnotesize Téléchargement: http://www.xm1math.net/texmaker/ }
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%% PART%% %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\part{ inclusion de figures à l'aide de différents outils}
+
+%TikZ
+\input{ppt_seance3_tikz}
+
+% Beamer
+\input{ppt_seance3_beamer}
+
+%%% Bibliographie %%%
+
+\begin{frame}
+  \frametitle{Bibliographie}
+
+\nocite{*}
+\bibliographystyle{abbrv-fr}
+\bibliography{latex}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%% FIN DU DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% ( NON PRISE EN COMPTE DE LA SUITE ) %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
