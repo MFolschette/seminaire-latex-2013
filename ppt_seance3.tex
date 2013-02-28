@@ -1,4 +1,5 @@
 \documentclass{beamer}
+\usepackage{etex}
 
 \input{in_part_a} %usepackage ect...
 \usepackage{pdfpages}
@@ -201,7 +202,13 @@ Utiliser un outil de gestion de bibliographie est nécessaire:
 
 \begin{frame}
 \frametitle{Cycle de compilation}
-TODO
+\begin{center}
+    \begin{tikzpicture}[block/.style={shape=rectangle, shape aspect=1.61, rounded corners},
+                        file/.style={minimum height=1cm, fill=blue!20, draw=blue},
+                        bin/.style={minimum height=3cm, fill=red!20, draw=red}]
+    \node[block, bin] at (0,0) {\LaTeX{}};
+    \end{tikzpicture}
+\end{center}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -263,7 +270,7 @@ TODO
 %%%%%%%%%%% PART%% %%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\part{ inclusion de figures à l'aide de différents outils}
+\part{Inclusion de figures à l'aide de différents outils}
 
 %TikZ
 \input{ppt_seance3_tikz}

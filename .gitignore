@@ -11,3 +11,5 @@
 *.pdf
 *.kate-swp
 
+*.fls
+*.fdb_latexmk
