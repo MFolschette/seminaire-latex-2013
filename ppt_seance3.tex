@@ -263,6 +263,27 @@ Utiliser un outil de gestion de bibliographie est nécessaire:
 \end{center}
 \end{frame}
 
+\begin{frame}[fragile]
+    \frametitle{Erreurs de compilation courantes}
+
+    \begin{verbatim}
+! Too many }'s.
+l.6 \date December 2004} \end{verbatim}
+    Accolades non balancées
+
+    \begin{verbatim}
+! Undefined control sequence.
+l.6 \dtae
+{December 2004} \end{verbatim}
+    Faute de frappe dans une commande, ou package manquant
+
+
+    \begin{verbatim}
+! Missing $ inserted \end{verbatim}
+Caractère math utilisé hors du mode math (ex: \_)
+
+\end{frame}
+
 \setbeamercovered{invisible}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% SECTION %%%%%%%%%%%%%%
