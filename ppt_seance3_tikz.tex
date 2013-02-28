@@ -79,7 +79,7 @@ Inconvénients :
 \section{Utilisation de TikZ}
 
 \begin{frame}[fragile]
-  \frametitle{Préambule et création d'une figure}
+  \frametitle{Préambule}
 
 TikZ doit être chargé dans le préambule :
 \lstinline?\usepackage{tikz}?
@@ -93,6 +93,12 @@ ce qui permet d'utiliser :
   \item des dégradés (\lstinline?shadings?),
   \item des styles de lignes (\lstinline?decorations.pathmorphing?), ...
 \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+  \frametitle{Création d'une figure}
 
 \bigskip
 Dans le document, on définit une image TikZ à l'aide de l'environnement \lstinline?tikzpicture?,
@@ -117,10 +123,10 @@ souvent inclus dans une \lstinline?figure? :
 {
 \node[circle, fill=yellow, draw]
   (rond) {1};
-\node[ellipse, fill=red!50]
-  (ellipse) [right of=1, node distance=3cm] {Une ellipse};
-\node[diamond, fill=blue!50, draw=blue, thick]
-  (diamantvide) [left of=1, node distance=2cm] {};
+\node[ellipse, fill=red!50, right of=1, node distance=3cm]
+  (ellipse) {Une ellipse};
+\node[diamond, fill=blue!50, draw=blue, thick, left of=1, node distance=2cm]
+  (diamantvide) {};
 }
 
 \def \tikzexedges
@@ -134,13 +140,14 @@ souvent inclus dans une \lstinline?figure? :
 }
 
 \begin{frame}[fragile,t]
-  \frametitle{Exemple : un graphe simple}
+  \frametitle{Description de l'image avec TikZ}
 
 \begin{figure}
-  \begin{tikzpicture}
-    \tikzexnodes
-    \tikzexedges
-  \end{tikzpicture}
+  %\begin{tikzpicture}
+%    \tikzexnodes
+%    \tikzexedges
+    \scalebox{0.6}{\tikzexc}
+  %\end{tikzpicture}
 \end{figure}
 
 Une figure TikZ est constituée d'éléments définis à l'aide de commandes :
@@ -152,15 +159,15 @@ Une figure TikZ est constituée d'éléments définis à l'aide de commandes :
 Par exemple, un graphe est composé de nœuds et d'arcs entre ces nœuds.
 Tous sont définis à l'aide de commandes TikZ.
 
-\medskip
-On commence par définir une figure et une image TikZ :
-\begin{lstlisting}
-\begin{figure}
-  \begin{tikzpicture}
-    ...    % La figure ici
-  \end{tikzpicture}
-\end{figure}
-\end{lstlisting}
+%\medskip
+%On commence par définir une figure et une image TikZ :
+%\begin{lstlisting}
+%\begin{figure}
+%  \begin{tikzpicture}
+%    ...    % La figure ici
+%  \end{tikzpicture}
+%\end{figure}
+%\end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile, t]
@@ -177,18 +184,18 @@ On définit un nœud avec la commande \lstinline?\node? et on peut spécifier :
 \begin{itemize}
   \item le nom interne \lstinline?(nom)? et l'étiquette visible \lstinline?{etiquette}?
   \item la forme \quad \lstinline?circle?, \lstinline?ellipse?, \lstinline?square?, \lstinline?diamond?
-  \item le type de ligne \quad \lstinline?draw? : visible, \lstinline?draw=blue? : en bleu, \lstinline?thick? : en gras
-  \item la couleur de fond \quad \lstinline?fill=yellow? : fond jaune, \lstinline?shading? : dégradé
-  \item la position \quad \lstinline?left/right/above/below of=n? : position par rapport à \lstinline?n?
+  \item le type de ligne et la couleur de fond
+  \item la position (absolue ou par rapport aux autres nœuds)
 \end{itemize}
 
+% Note : « n££ode » permet uniquement d'écrire « node » sans le colorer
 \begin{lstlisting}
 \node[circle, fill=yellow, draw]
   (rond) {1};
-\node[ellipse, fill=red!50]
-  (ellipse) [right of=1, node distance=3cm] {Une ellipse};
-\node[diamond, fill=blue!50, draw=blue, thick]
-  (diamantvide) [left of=1, node distance=2cm] {};
+\node[ellipse, fill=red!50, right of=1, n££ode distance=3cm]
+  (ellipse) {Une ellipse};
+\node[diamond, fill=blue!50, draw=blue, thick, left of=1, n££ode distance=2cm]
+  (diamantvide) {};
 \end{lstlisting}
 \end{frame}
 
@@ -220,9 +227,10 @@ etc.
 On peut placer un nouveau nœud sur un arc avec le mot-clef \lstinline?node?.
 
 \begin{lstlisting}
-\path[-, bend right] (retour.east) edge (rond.south);
 \path[o->>, bend right] (diamantvide) edge
-  node[below, fill=green!30] (retour) {retour} (rond);
+  node[below, fill=green!30] (retour) {retour}
+  (rond);
+\path[-, bend right] (retour.east) edge (rond.south);
 \end{lstlisting}
 \end{frame}
 
