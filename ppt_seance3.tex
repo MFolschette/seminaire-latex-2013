@@ -29,7 +29,8 @@
             \item bibliographie, 
             \item commandes avancées, 
             \item inclusion de figures à l'aide de différents outils, 
-            \item création d'un diaporama à l'aide de la classe Beamer. 
+            \item création d'un diaporama à l'aide de la classe Beamer, 
+            \item vos questions !
         \end{itemize}
 \end{frame}
 
@@ -47,19 +48,22 @@
 
 \begin{frame}[fragile]
 \frametitle{Présentation de BibTeX}
-BibTeX est un outil de gestion de bibliographie
-	
+BibTeX est un outil de gestion de bibliographie.
 
-La \emph{base de données} bibliographique est placée dans un fichier extérieur (.bib)
-On le place dans le document par les commandes:
+\medskip
+La \emph{base de données} bibliographique est placée dans un fichier extérieur (\lstinline?.bib?).
+
+\medskip
+On inclut la bibliographie dans le document par les commandes :
 \begin{lstlisting}
 \bibliographystyle{plain}
 \bibliography{nom-biblio}
 \end{lstlisting}
-On y fait référence par la commande \lstinline?\cite{...}?  \cite{latexcompanion}
+Il est possible d'inclure plusieurs fichiers \lstinline?.bib? :
+\lstinline?\bibliography{biblio1,biblio2}?.
 
-Il est possible d'inclure plusieurs fichiers .bib:
-\lstinline?\bibliography{biblio1,biblio2}?
+\medskip
+On crée des références dans le document par la commande : \lstinline?\cite{...}?  \cite{latexcompanion}.
 \end{frame}
 
 %%%%%%%%%%
@@ -71,7 +75,7 @@ Il est possible d'inclure plusieurs fichiers .bib:
 \begin{frame}[fragile]
 \frametitle{Exercice}
 
-Créer un nouveau fichier .tex nommé biblio.tex. 
+Créer un nouveau fichier \lstinline?.bib? nommé \lstinline?biblio.bib? et contenant : 
 
 \begin{lstlisting}
 @article{greenwade93,
@@ -107,8 +111,9 @@ Et y faire référence dans votre document principal:
 \begin{frame}
 \frametitle{Outils de gestion de bibliographie}
 
-La plupart des bases de données bibliographiques permettent d'exporter une entrée en BibTeX (Google Scholar inclu: Préférences Scholar,  Gestionnaire des bibliographies,  Afficher les liens permettant d'importer des citations dans BibTeX).
+La plupart des bases de données bibliographiques permettent d'exporter une entrée en BibTeX (Google Scholar inclus : Préférences Scholar,  Gestionnaire des bibliographies,  Afficher les liens permettant d'importer des citations dans BibTeX).
 
+\medskip
 Utiliser un outil de gestion de bibliographie est nécessaire:
 \begin{itemize}
 \item JabRef,
@@ -266,20 +271,22 @@ Utiliser un outil de gestion de bibliographie est nécessaire:
 \begin{frame}[fragile]
     \frametitle{Erreurs de compilation courantes}
 
-    \begin{verbatim}
-! Too many }'s.
-l.6 \date December 2004} \end{verbatim}
+    \begin{lstlisting}[language={},backgroundcolor=\color{gray!30}]
+| ! Too many }'s.
+| l.6 \date December 2004} \end{lstlisting}
     Accolades non balancées
 
-    \begin{verbatim}
-! Undefined control sequence.
-l.6 \dtae
-{December 2004} \end{verbatim}
+    \medskip
+    \begin{lstlisting}[language={},backgroundcolor=\color{gray!30}]
+| ! Undefined control sequence.
+| l.6 \dtae
+| {December 2004} \end{lstlisting}
     Faute de frappe dans une commande, ou package manquant
 
 
-    \begin{verbatim}
-! Missing $ inserted \end{verbatim}
+    \medskip
+    \begin{lstlisting}[language={},backgroundcolor=\color{gray!30}]
+| ! Missing $ inserted \end{lstlisting}
 Caractère math utilisé hors du mode math (ex: \_)
 
 \end{frame}
@@ -344,7 +351,7 @@ Caractère math utilisé hors du mode math (ex: \_)
 %%%%%%%%%%% PART%% %%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\part{Inclusion de figures à l'aide de différents outils}
+\part{Inclusion de figures à l'aide de PGF/TikZ}
 
 %TikZ
 \input{ppt_seance3_tikz}
