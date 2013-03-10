@@ -1,4 +1,6 @@
-% Présentation de TikZ
+%%% Présentation de TikZ
+
+\part{Inclusion de figures à l'aide de PGF/TikZ}
 
 \section{Présentation de PGF/TikZ}
 
@@ -32,7 +34,7 @@ Inconvénients :
 
 \section{Quelques exemples avec TikZ}
 
-\input{ppt_seance3_tikz_ex}
+\input{seance3_tikz_ex}
 
 \begin{frame}
   \begin{figure}
@@ -118,7 +120,7 @@ souvent inclus dans une \lstinline?figure? :
 
 
 
-
+% Morceaux de la figure d'exemple (pour éviter les copier-coller)
 \def \tikzexnodes
 {
 \node[circle, fill=yellow, draw]
@@ -143,11 +145,7 @@ souvent inclus dans une \lstinline?figure? :
   \frametitle{Description de l'image avec TikZ}
 
 \begin{figure}
-  %\begin{tikzpicture}
-%    \tikzexnodes
-%    \tikzexedges
-    \scalebox{0.6}{\tikzexc}
-  %\end{tikzpicture}
+  \scalebox{0.6}{\tikzexc}
 \end{figure}
 
 Une figure TikZ est constituée d'éléments définis à l'aide de commandes :
@@ -158,16 +156,6 @@ Une figure TikZ est constituée d'éléments définis à l'aide de commandes :
 
 Par exemple, un graphe est composé de nœuds et d'arcs entre ces nœuds.
 Tous sont définis à l'aide de commandes TikZ.
-
-%\medskip
-%On commence par définir une figure et une image TikZ :
-%\begin{lstlisting}
-%\begin{figure}
-%  \begin{tikzpicture}
-%    ...    % La figure ici
-%  \end{tikzpicture}
-%\end{figure}
-%\end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile, t]
@@ -188,7 +176,7 @@ On définit un nœud avec la commande \lstinline?\node? et on peut spécifier :
   \item la position (absolue ou par rapport aux autres nœuds)
 \end{itemize}
 
-% Note : « n££ode » permet uniquement d'écrire « node » sans le colorer
+% Note : « n££ode » permet uniquement d'écrire « node » sans le colorer das le listing
 \begin{lstlisting}
 \node[circle, fill=yellow, draw]
   (rond) {1};

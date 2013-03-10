@@ -1,9 +1,9 @@
 \documentclass{beamer}
 
-\input{in_part_a} %usepackage ect...
+\input{preambule}
+
 \title{Séminaire \LaTeX, séance 1: prise en main}
 \date{jeudi 21 février 2013}
-\input{in_part_b} %author ect...
 
 \begin{document}
 
@@ -147,12 +147,10 @@
 
 \begin{frame}{Téléchargement}
 
-   \begin{figure} %debut de l'environnement figure
-\centering %figure centree
-\includegraphics[width=11cm]{img/fenetre_moz_log} % image de X cm de large
-%\caption{Titre de la figure} %titre de la figure
-%\label{titre_fig} %label de la figure (ex voir figure W)
-\end{figure} %fin de l'environnement figure
+\begin{figure}
+\centering
+\includegraphics[width=11cm]{img/fenetre_moz_log}
+\end{figure}
 
 \end{frame}
 
@@ -160,12 +158,10 @@
 
 \begin{frame}{MikTeX (Windows)}
 
-\begin{figure} %debut de l'environnement figure
-\centering %figure centree
-\includegraphics[width=11cm]{img/miktex_1} % image de X cm de large
-%\caption{Titre de la figure} %titre de la figure
-%\label{titre_fig} %label de la figure (ex voir figure W)
-\end{figure} %fin de l'environnement figure
+\begin{figure}
+\centering
+\includegraphics[width=11cm]{img/miktex_1}
+\end{figure}
 
 \end{frame}
 
@@ -173,12 +169,10 @@
 
 \begin{frame}{MacTeX (MacOS)}
 
-\begin{figure} %debut de l'environnement figure
-\centering %figure centree
-\includegraphics[width=9cm]{img/mactex_1} % image de X cm de large
-%\caption{Titre de la figure} %titre de la figure
-%\label{titre_fig} %label de la figure (ex voir figure W)
-\end{figure} %fin de l'environnement figure
+\begin{figure}
+\centering
+\includegraphics[width=9cm]{img/mactex_1}
+\end{figure}
 
 {\footnotesize image disponible sur http://trondlossius.no/articles/969-mactex-2009}
 
@@ -188,12 +182,10 @@
 
 \begin{frame}{TeXlive (Linux)}
 
-\begin{figure} %debut de l'environnement figure
-\centering %figure centree
-\includegraphics[width=10cm]{img/texlive_1} % image de X cm de large
-%\caption{Titre de la figure} %titre de la figure
-%\label{titre_fig} %label de la figure (ex voir figure W)
-\end{figure} %fin de l'environnement figure
+\begin{figure}
+\centering
+\includegraphics[width=10cm]{img/texlive_1}
+\end{figure}
 
 {\footnotesize image disponible sur http://flashinformatique.epfl.ch/spip.php?article2315}
 
@@ -557,30 +549,32 @@ Essayez d'utliser les commandes   \texttt{titlepage}  \texttt{clearpage}  et \te
 
 \begin{itemize}
 \item un saut de paragraphe est produit par une ligne vierge
-\item\LaTeX ignore les sauts de lignes et les espaces multiples (mise en forme automatique à la compilation)
+\item\LaTeX{} ignore les sauts de ligne et les espaces multiples (mise en forme automatique à la compilation)
 \end{itemize}
 
+% Note : Les « £\`e£ » permettent de mettre des accents dans les listings
 \begin{lstlisting}
-blabla bgnhoireg jerifjoiref
-
-vjirjev jirjoiji okpokpok kokok
-
-
-kkoooooo kooooooooooooooooo
+| Premier paragraphe.
+| 
+| Deuxi£\`e£me paragraphe apr£\`e£s deux sauts de ligne.
+| 
+| 
+| Dernier      paragraphe    plus      loin.
 \end{lstlisting}
 
 donne:
 
-\vspace{5mm}
+\medskip
+Premier paragraphe.
 
-blabla bgnhoireg jerifjoiref
-
-vjirjev jirjoiji okpokpok kokok
+Deuxième paragraphe après deux sauts de ligne.
 
 
-kkoooooo kooooooooooooooooo
+Dernier      paragraphe    plus      loin.
 
-Regardez sur votre document \LaTeX  l'effet des saut de ligne...
+\medskip
+
+Regardez sur votre document \LaTeX{} l'effet des sauts de ligne...
 
 \end{frame}
 
@@ -619,13 +613,14 @@ Regardez sur votre document \LaTeX   l'effet des différentes tailles et styles 
 \frametitle{Environnement}
 
 \begin{lstlisting}
-\begin{....}
+\begin{nom-environnement}
 ...
-\end{....}
+...    % Contenu de l'environnement
+...
+\end{nom-environnement}
 \end{lstlisting}
 
 Permet de définir le début de la fin d'un environnement (figures, équations mathématiques, ect\dots)
-
 \end{frame}
 
 %%%%%%%%% SLIDE %%%%%%%%%%%%%%%%%%

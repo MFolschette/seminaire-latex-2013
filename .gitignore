@@ -10,6 +10,6 @@
 *.backup
 *.pdf
 *.kate-swp
-
+*.tex~
 *.fls
 *.fdb_latexmk

@@ -1,18 +1,19 @@
 \documentclass{beamer}
-%\usepackage{etex}
 
-\input{in_part_a} %usepackage ect...
-\usepackage{pdfpages}
+\input{preambule}
 
 \title [Séminaire \LaTeX, séance 3]{Séminaire \LaTeX, séance 3: utilisation avancée}
 \date{jeudi 28 février 2013}
-\input{in_part_b} %author ect...
 
-%%Macros exemple
+
+
+% Exemples de macros
 \newcommand{\ltsname}{Labeled Transition System}
 \newcommand{\abs}[1]{\ensuremath\left|#1\right|}
 \newcommand{\lts}[1][]{\ensuremath\left(Q^{#1}, q_0^{#1}, A_{#1}, \rightarrow_{#1}\right)}
 \renewcommand{\vec}[1]{\overrightarrow{#1}}
+
+
 
 \begin{document}
 
@@ -127,15 +128,13 @@ Utiliser un outil de gestion de bibliographie est nécessaire:
 \begin{frame}{Jabref (mutli-plateforme)}
 
 \vspace*{-0.5cm}
-\begin{figure} %debut de l'environnement figure
-\centering %figure centree
-\includegraphics[width=9cm]{img/jabref} % image de X cm de large
-%\caption{Titre de la figure} %titre de la figure
-%\label{titre_fig} %label de la figure (ex voir figure W)
-\end{figure} %fin de l'environnement figure
+\begin{figure}
+\centering
+\includegraphics[width=9cm]{img/jabref}
+\end{figure}
 
 \vspace*{-0.5cm}
-{\footnotesize Téléchargement: http://jabref.sourceforge.net/ }
+{\footnotesize Téléchargement: \url{http://jabref.sourceforge.net/}}
 
 \end{frame}
 
@@ -303,14 +302,12 @@ Caractère math utilisé hors du mode math (ex: \_)
 
 \begin{frame}{Texniccenter}
 
-\begin{figure} %debut de l'environnement figure
-\centering %figure centree
-\includegraphics[width=9cm]{img/Texniccenter} % image de X cm de large
-%\caption{Titre de la figure} %titre de la figure
-%\label{titre_fig} %label de la figure (ex voir figure W)
-\end{figure} %fin de l'environnement figure
+\begin{figure}
+\centering
+\includegraphics[width=9cm]{img/Texniccenter}
+\end{figure}
 
-{\footnotesize Téléchargement: http://www.texniccenter.org/ }
+{\footnotesize Téléchargement: \url{http://www.texniccenter.org/}}
 
 \end{frame}
 
@@ -319,14 +316,12 @@ Caractère math utilisé hors du mode math (ex: \_)
 
 \begin{frame}{LyX}
 
-\begin{figure} %debut de l'environnement figure
-\centering %figure centree
-\includegraphics[width=8cm]{img/LyXScreen_Linux_en} % image de X cm de large
-%\caption{Titre de la figure} %titre de la figure
-%\label{titre_fig} %label de la figure (ex voir figure W)
-\end{figure} %fin de l'environnement figure
+\begin{figure}
+\centering
+\includegraphics[width=8cm]{img/LyXScreen_Linux_en}
+\end{figure}
 
-{\footnotesize Téléchargement: http:// 	www.lyx.org/ }
+{\footnotesize Téléchargement: \url{http://www.lyx.org/}}
 
 \end{frame}
 
@@ -335,29 +330,28 @@ Caractère math utilisé hors du mode math (ex: \_)
 
 \begin{frame}{Texmaker}
 
-\begin{figure} %debut de l'environnement figure
-\centering %figure centree
-\includegraphics[width=9cm]{img/TexmakerView} % image de X cm de large
-%\caption{Titre de la figure} %titre de la figure
-%\label{titre_fig} %label de la figure (ex voir figure W)
-\end{figure} %fin de l'environnement figure
+\begin{figure}
+\centering
+\includegraphics[width=9cm]{img/TexmakerView}
+\end{figure}
 
-{\footnotesize Téléchargement: http://www.xm1math.net/texmaker/ }
+{\footnotesize Téléchargement: \url{http://www.xm1math.net/texmaker/}}
 
 \end{frame}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%% PART%% %%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\part{Inclusion de figures à l'aide de PGF/TikZ}
+%%% TikZ
+\input{seance3_tikz}
 
-%TikZ
-\input{ppt_seance3_tikz}
+%%% Beamer
+\input{seance3_beamer}
 
-% Beamer
-\input{ppt_seance3_beamer}
+
 
 %%% Bibliographie %%%
 
